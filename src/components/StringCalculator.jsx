@@ -42,25 +42,46 @@ const StringCalculator = () => {
     }
 
     return (
-        <CalculatorWrapper>
-            <TextField
-                id="outlined-basic"
-                label="enter string to sum"
-                variant="outlined"
-                multiline
-                onChange={(e) => setInputString(e.target.value)}
-            />
-            <Button variant="outlined" onClick={calculateSum}>Click to find sum of string</Button>
-            {finalSum ? <h2>Result: {finalSum}</h2> : null}
-            {errorMessage ? <h2>Error: {errorMessage}</h2> : null}
-        </CalculatorWrapper>
+        <>
+            <CalculatorWrapper>
+                <div>
+                    <StyledTextField
+                        id="outlined-basic"
+                        label="Enter string to sum"
+                        variant="outlined"
+                        multiline
+                        onChange={(e) => setInputString(e.target.value)}
+                    />
+                </div>
+                <Button variant="outlined" onClick={calculateSum}>
+                    Click to find sum of string
+                </Button>
+                {finalSum ? <StyledResultHeading>Result: {finalSum}</StyledResultHeading> : null}
+                {errorMessage ? <StyledErrorHeading>Error: {errorMessage}</StyledErrorHeading> : null}
+            </CalculatorWrapper>
+        </>
     )
 }
 
 const CalculatorWrapper = styled('div')({
     display: "flex",
-    justifyContent: "center",
-    gap: 5,
+    flexDirection: "column",
+    alignItems: "center",
+    height: '100vh', // Full page height
+    textAlign: 'center'
+});
+
+const StyledTextField = styled(TextField)({
+    marginBottom: '1rem',
+    width: '20rem'
+});
+
+const StyledResultHeading = styled('h1')({
+    color: 'green',
+});
+
+const StyledErrorHeading = styled('h1')({
+    color: 'red',
 });
 
 export default StringCalculator;

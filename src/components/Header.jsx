@@ -11,6 +11,7 @@ const Header = () => {
 const HeaderWrapper = styled('div')({
     display: "flex",
     justifyContent: "center",
+    textAlign: "center",
 });
 
 export default Header;
