@@ -1,9 +1,12 @@
+import Header from "./components/Header";
+import StringCalculator from "./components/StringCalculator";
 
 const App = () => {
     return (
-        <div >
-            Incubyte TDD Assessment - Frontend 
-        </div>
+        <>
+            <Header />
+            <StringCalculator />
+        </>
     );
 }
 
