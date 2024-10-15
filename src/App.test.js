@@ -21,13 +21,13 @@ test('renders correct heading text', () => {
 //Render Test
 test('renders StringCalculator component without crashing', () => {
     render(<StringCalculator />);
-    expect(screen.getByLabelText('enter string to sum')).toBeInTheDocument();
+    expect(screen.getByLabelText('Enter string to sum')).toBeInTheDocument();
     expect(screen.getByText('Click to find sum of string')).toBeInTheDocument();
 });
 // TextField Input Handling
 test('updates inputString state on user input', () => {
     render(<StringCalculator />);
-    const inputField = screen.getByLabelText('enter string to sum');
+    const inputField = screen.getByLabelText('Enter string to sum');
     fireEvent.change(inputField, { target: { value: '1,2,3' } });
     expect(inputField.value).toBe('1,2,3');
 });
@@ -40,7 +40,7 @@ test('renders button with correct text', () => {
 // Correct Sum Calculation
 test('calculates sum of numbers correctly', () => {
     render(<StringCalculator />);
-    const inputField = screen.getByLabelText('enter string to sum');
+    const inputField = screen.getByLabelText('Enter string to sum');
     const button = screen.getByText('Click to find sum of string');
 
     fireEvent.change(inputField, { target: { value: '1,2,3' } });
@@ -51,7 +51,7 @@ test('calculates sum of numbers correctly', () => {
 // Handle Newline as Delimiter
 test('handles newline as delimiter and calculates sum', () => {
     render(<StringCalculator />);
-    const inputField = screen.getByLabelText('enter string to sum');
+    const inputField = screen.getByLabelText('Enter string to sum');
     const button = screen.getByText('Click to find sum of string');
 
     fireEvent.change(inputField, { target: { value: '1\n2,3' } });
@@ -62,7 +62,7 @@ test('handles newline as delimiter and calculates sum', () => {
 // Custom Delimiter Handling
 test('handles custom delimiter and calculates sum', () => {
     render(<StringCalculator />);
-    const inputField = screen.getByLabelText('enter string to sum');
+    const inputField = screen.getByLabelText('Enter string to sum');
     const button = screen.getByText('Click to find sum of string');
 
     fireEvent.change(inputField, { target: { value: '//;\n1;2;3' } });
@@ -73,7 +73,7 @@ test('handles custom delimiter and calculates sum', () => {
 // Negative Number Error Handling
 test('throws error for negative numbers', () => {
     render(<StringCalculator />);
-    const inputField = screen.getByLabelText('enter string to sum');
+    const inputField = screen.getByLabelText('Enter string to sum');
     const button = screen.getByText('Click to find sum of string');
 
     fireEvent.change(inputField, { target: { value: '1,-2,3' } });
@@ -84,7 +84,7 @@ test('throws error for negative numbers', () => {
 // Empty Input Edge Case
 test('handles empty input gracefully', () => {
     render(<StringCalculator />);
-    const inputField = screen.getByLabelText('enter string to sum');
+    const inputField = screen.getByLabelText('Enter string to sum');
     const button = screen.getByText('Click to find sum of string');
 
     fireEvent.change(inputField, { target: { value: '' } });
